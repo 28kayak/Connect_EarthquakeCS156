@@ -1,0 +1,62 @@
+For the coding part of this assignment I would like you to write a Python program, connect_earthquake.py that plays a variant of the popular Connect Four game. This variant I call Connect Earthquake. It is played on a board with 7 slots, each of arbitrary height. As with the Connect Four game, players take turns dropping their pieces into one of the seven slots; however, in a given round, after both players have gone, a six-sided die is rolled, on a 1 an earthquake happens, and the last row of the board is deleted; on a 2, 3,4,5,6 nothing happens. After the check-for-earthquakes roll, play proceeds to next round. A check for a winner is done immediately after each player goes (before any earthquake checks). If a player has four in a row, either vertically, horizontally, or diagonally they win.
+
+Your program will be run from the command line by the grader with a line like:
+
+python connect_earthquake.py
+It should output:
+Would you like to go first (y/n)?
+It should then prompt:
+
+Should I tell you when earthquake happen (y/n)?
+(If not, each round, I will ask you if an earthquake happened)
+This option makes it easier to play two people's programs against each other. The first player's pieces are X's, the second player's are O's. At which point an initial board is drawn. To prompt for a move your program should write:
+
+Please enter a slot from 1 to 7 for your move:
+If you answered 'y' to the earthquake question, your Python program should use a random generator to handle earthquake checks. Otherwise, after your move, it will prompt:
+
+Did an earthquake happen (y/n)?
+Here is an example transcript of a connect_earthquake game:
+
+Would you like to go first (y/n)? y
+Should I tell you when earthquake happen (y/n)?
+(If not, each round, I will ask you if an earthquake happened)y
+| | | | | | | |
+|1|2|3|4|5|6|7|
+Please enter a slot from 1 to 7 for your move:4
+Board After Your Move:
+| | | | | | | |
+| | | |X| | | |
+|1|2|3|4|5|6|7|
+Board After My Move:
+| | | | | | | |
+| | |O|X| | | |
+|1|2|3|4|5|6|7|
+Board After Earthquake Check:
+| | | | | | | |
+| | |O|X| | | |
+|1|2|3|4|5|6|7|
+Please enter a slot from 1 to 7 for your move:4
+Board After Your Move:
+| | | | | | | |
+| | | |X| | | |
+| | |O|X| | | |
+|1|2|3|4|5|6|7|
+Board After My Move:
+| | | | | | | |
+| | | |X| | | |
+| | |O|X|O| | |
+|1|2|3|4|5|6|7|
+Board After Earthquake Check:
+| | | | | | | |
+| | | |X| | | |
+|1|2|3|4|5|6|7|
+.... (many moves omitted)
+Board After My Move:
+| | | | | | | |
+| | | | |O|O| |
+| | | |O|X|X| |
+| | |O|X|X|O|X|
+| |O|X|X|O|O|X|
+|1|2|3|4|5|6|7|
+I win!!! Game over!
+When the game completes your program should return to the command prompt. Your program should draw boards after each ply as in the above example. To make its move, your computer player should run the expectminimax (a variant of minimax described on page 178 of our book) algorithm with alpha beta pruning. At the top of your connect_earthquake.py program you should clearly say where to find the code for expectiminimax and alpha-beta pruning. This completes the describe of the homework
