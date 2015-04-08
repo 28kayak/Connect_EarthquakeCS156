@@ -200,9 +200,7 @@ def earthquake():
 def whichWin(human_done, ai_done):
     """Return true if human wins, otherwise false"""
     if human_done is True:
-
-
-SlotX = 0
+        SlotX = 0
 
 for i in range(8):
     slot.append([])
